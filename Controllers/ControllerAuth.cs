@@ -39,10 +39,12 @@ namespace BootCam.Controllers
                 return true;
             }
            //no enviar
-           //COMI 1
+        
             return false;
            
         }
+
+
 
 
 
