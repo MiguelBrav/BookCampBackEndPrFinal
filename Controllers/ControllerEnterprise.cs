@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BootCam.Controllers
 {
@@ -30,7 +28,7 @@ namespace BootCam.Controllers
         {
             try
             {
-               // enterprise.Date = DateTime.Now;
+                enterprise.Date = DateTime.Now;
                 return StatusCode(StatusCodes.Status200OK, _enterpriseservice.SaveEnterprise(enterprise));
             }
             catch (Exception ex)
@@ -57,19 +55,90 @@ namespace BootCam.Controllers
 
 
         [HttpGet]
-        [Route("all/OrderType/1")]
-        public ActionResult<List<Enterprise>> GetAllEnterprisenombres()
+        [Route("all/OrderType/{id}")]
+        public ActionResult<List<Enterprise>> GetAllEnterprisenombres(int id)
         {
-            try
+
+            switch (id)
+            {
+                case 1:
+                    try
+                    {
+                        return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesName());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    
+              
+                 
+                case 2:
+                    try
+                    {
+                        return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesVacantes());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
+
+                case 3:
+
+                    try
+                    {
+                        return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaAsc());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
+
+                case 4:
+                    try
+                    {
+                        return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaDes());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
+
+                default:
+                    //      return StatusCode(StatusCodes.Status400BadRequest);
+                    {
+                        throw new ApplicationException("Ingresa un numero de ordenamiento válido");
+                    }
+
+            }
+
+
+        }
+     
+            /*
+            if (id == 1)
             {
                 return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesName());
-            }
-            catch (Exception ex)
+            } 
+            if (id == 2)
             {
-                throw new Exception(ex.Message);
+                return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesVacantes());
             }
-        }
-
+            if (id == 3)
+            {
+                return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaAsc());
+            }
+            if (id == 4)
+            {
+                return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaDes());
+            } 
+            return StatusCode(StatusCodes.Status400BadRequest);
+            */
+  
+        /*
         [HttpGet]
         [Route("all/OrderType/2")]
         public ActionResult<List<Enterprise>> GetAllEnterprisevacantes()
@@ -82,8 +151,8 @@ namespace BootCam.Controllers
             {
                 throw new Exception(ex.Message);
             }
-        }
-
+        }*/
+        /*
         [HttpGet]
         [Route("all/OrderType/3")]
         public ActionResult<List<Enterprise>> GetAllEnterprisecreacionAscendente()
@@ -96,8 +165,8 @@ namespace BootCam.Controllers
             {
                 throw new Exception(ex.Message);
             }
-        }
-
+        }*/
+        /*
         [HttpGet]
         [Route("all/OrderType/4")]
         public ActionResult<List<Enterprise>> GetAllEnterprisecreacionDescendente()
@@ -111,7 +180,7 @@ namespace BootCam.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        */
 
     }
 }

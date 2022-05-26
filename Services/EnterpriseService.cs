@@ -32,7 +32,7 @@ namespace BootCam.Services
 
         public List<Enterprise> GetAllEnterprisesCreaDes()
         {
-            return _enterpriseRepository.GetAllEnterprisesCreaAsc();
+            return _enterpriseRepository.GetAllEnterprisesCreaDes();
         }
 
         public List<Enterprise> GetAllEnterprisesName()
