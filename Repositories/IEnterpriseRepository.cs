@@ -19,5 +19,8 @@ namespace BootCam.Repositories
 
         List<Enterprise> GetAllEnterprisesCreaAsc();
 
+
+        List<Enterprise> GetAllEnterprisesCreaDes();
+
     }
 }

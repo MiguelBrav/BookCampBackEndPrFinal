@@ -25,6 +25,11 @@ namespace BootCam.Repositories
             return _context.Enterprise.ToList().OrderBy(enterprise => enterprise.Date).ToList();
         }
 
+        public List<Enterprise> GetAllEnterprisesCreaDes()
+        {
+            return _context.Enterprise.ToList().OrderByDescending(enterprise => enterprise.Date).ToList();
+        }
+
         public List<Enterprise> GetAllEnterprisesName()
         {
             return _context.Enterprise.ToList().OrderBy(enterprise => enterprise.Nom_Emp).ToList(); 

@@ -1,15 +1,20 @@
 ﻿using BootCam.Models;
 using BootCam.Repositories;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BootCam.Services
 {
     public class EnterpriseService : IEnterpriseService
     {
+  
         private IEnterpriseRepository _enterpriseRepository;
+      
+
         public EnterpriseService(IEnterpriseRepository ientnRepository)
         {
             _enterpriseRepository = ientnRepository;
@@ -25,6 +30,11 @@ namespace BootCam.Services
             return _enterpriseRepository.GetAllEnterprisesCreaAsc();
         }
 
+        public List<Enterprise> GetAllEnterprisesCreaDes()
+        {
+            return _enterpriseRepository.GetAllEnterprisesCreaAsc();
+        }
+
         public List<Enterprise> GetAllEnterprisesName()
         {
             return _enterpriseRepository.GetAllEnterprisesName();
@@ -35,15 +45,49 @@ namespace BootCam.Services
             return _enterpriseRepository.GetAllEnterprisesVacantes();
         }
 
-        public Enterprise SaveEnterprise(Enterprise enterprise)
+        public bool SaveEnterprise(Enterprise enterprise)
         {
-            enterprise.Cant_Vacan = GetTotalVacantsOCC(enterprise.Nom_Emp);
-            return _enterpriseRepository.SaveEnterprise(enterprise);
+           // var regex = new Regex(@"[^a-zA-Z0\s]");
+
+            if (enterprise.Nom_Emp == "")
+            {
+                return false;
+            } else
+            {
+            int numvacan = GetTotalVacantsOCC(enterprise.Nom_Emp);
+
+            enterprise.Cant_Vacan = numvacan;
+
+            _enterpriseRepository.SaveEnterprise(enterprise);
+            return true;
+            }
+
+          
+
+            //     if (regex.IsMatch(enterprise.Nom_Emp))
+            // {
+
+
+            //}
+            // return false;
+
         }
-        private int GetTotalVacantsOCC(String nombre)
+
+        private static int GetTotalVacantsOCC(String Cant_Vacan)
         {
-            //to Do: implementar web scraping
-            return 1;
+            _ = new HtmlDocument();
+            HtmlWeb web = new();
+            int vacantes;
+            string inputTextDash = Cant_Vacan;
+
+            string url = ($"https://www.occ.com.mx/empleos/de-{inputTextDash}");
+            HtmlDocument doc = web.Load(url);
+
+            var resVacOcc = doc.DocumentNode.SelectSingleNode("//*[text()[contains(., 'Empleos encontrados')]]").FirstChild.InnerText;
+
+            vacantes = int.Parse(resVacOcc);
+
+            return vacantes;
         }
     }
 }    

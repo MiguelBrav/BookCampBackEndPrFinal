@@ -8,7 +8,7 @@ namespace BootCam.Services
 {
     public interface IEnterpriseService
     {
-        Enterprise SaveEnterprise(Enterprise enterprise);
+        bool SaveEnterprise(Enterprise enterprise);
 
         List<Enterprise> GetAllEnterprises();
 
@@ -17,5 +17,7 @@ namespace BootCam.Services
         List<Enterprise> GetAllEnterprisesVacantes();
 
         List<Enterprise> GetAllEnterprisesCreaAsc();
+
+        List<Enterprise> GetAllEnterprisesCreaDes();
     }
 }

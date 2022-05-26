@@ -30,7 +30,7 @@ namespace BootCam.Controllers
         {
             try
             {
-
+               // enterprise.Date = DateTime.Now;
                 return StatusCode(StatusCodes.Status200OK, _enterpriseservice.SaveEnterprise(enterprise));
             }
             catch (Exception ex)
@@ -54,8 +54,10 @@ namespace BootCam.Controllers
             }
         }
 
+
+
         [HttpGet]
-        [Route("OrderType/name")]
+        [Route("all/OrderType/1")]
         public ActionResult<List<Enterprise>> GetAllEnterprisenombres()
         {
             try
@@ -69,7 +71,7 @@ namespace BootCam.Controllers
         }
 
         [HttpGet]
-        [Route("OrderType/vacantes")]
+        [Route("all/OrderType/2")]
         public ActionResult<List<Enterprise>> GetAllEnterprisevacantes()
         {
             try
@@ -83,12 +85,26 @@ namespace BootCam.Controllers
         }
 
         [HttpGet]
-        [Route("OrderType/creacion/asc")]
+        [Route("all/OrderType/3")]
         public ActionResult<List<Enterprise>> GetAllEnterprisecreacionAscendente()
         {
             try
             {
                 return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaAsc());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("all/OrderType/4")]
+        public ActionResult<List<Enterprise>> GetAllEnterprisecreacionDescendente()
+        {
+            try
+            {
+                return StatusCode(StatusCodes.Status200OK, _enterpriseservice.GetAllEnterprisesCreaDes());
             }
             catch (Exception ex)
             {

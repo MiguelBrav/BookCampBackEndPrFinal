@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tl1WJu8YYAulAf1pZ8p3Pg0rUrrv7TwElwpxYWp+QZ7YKKsA8vtjfPGoS9mljmyMGeAIhaa5mkWDV9IORptmnQ==",
+  "dgSpecHash": "38y3RLUtD9ipkl6bbb4MkPacqi91BP+qN38siv/rFZLKtZ+62V/cOGVmqA6Ey6KYmFl8PRwEw0y4uRxnA7T3hA==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\BootCam\\BootCam.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

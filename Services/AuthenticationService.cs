@@ -26,6 +26,11 @@ namespace BootCam.Services
             {
                 return false;
             }
+
+            if (currentuser.Email == "" || currentuser.Pass == "")
+            {
+                return false;
+            }
             if (currentuser.Email != user.Email || currentuser.Pass != user.Pass)
             {
                 return false;

@@ -57,3 +57,4 @@ C:\Users\PC\source\repos\BootCam\obj\Debug\net5.0\BootCam.dll
 C:\Users\PC\source\repos\BootCam\obj\Debug\net5.0\ref\BootCam.dll
 C:\Users\PC\source\repos\BootCam\obj\Debug\net5.0\BootCam.pdb
 C:\Users\PC\source\repos\BootCam\obj\Debug\net5.0\BootCam.genruntimeconfig.cache
+C:\Users\PC\source\repos\BootCam\bin\Debug\net5.0\HtmlAgilityPack.dll
